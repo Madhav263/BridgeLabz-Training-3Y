@@ -1,0 +1,641 @@
+CSS PRACTICE ASSIGNMENT — 10 SEPARATE HTML/CSS FILE PAIRS
+Each HTML file links to its matching CSS file. Save the individual sections as named below.
+
+
+==============================================================================
+FILE: 01-borders-padding.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Borders and Padding Demonstration</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="01-borders-padding.css">
+</head>
+<body>
+<header class="page-header"><h1>Borders &amp; Padding</h1><p>Explore border styles, rounded corners, and internal spacing.</p></header>
+    <main class="container">
+      <section class="box-row" aria-label="Border demonstrations">
+        <article class="demo-box solid"><h2>Solid Border</h2><p>Padding: 16px</p></article>
+        <article class="demo-box dashed"><h2>Dashed Border</h2><p>Padding: 24px</p></article>
+        <article class="demo-box double"><h2>Double Border</h2><p>Padding: 12px</p></article>
+        <article class="demo-box groove"><h2>Groove Border</h2><p>Padding: 20px</p></article>
+        <article class="demo-box rounded"><h2>Rounded Corners</h2><p>Border radius: 24px</p></article>
+      </section>
+    </main>
+    <footer class="page-footer">Hover over any box to change its border color.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 01-borders-padding.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Borders and Padding Demonstration. */
+/* Flexbox keeps the demonstration boxes in a horizontal row. */
+.box-row { display: flex; justify-content: center; align-items: stretch; flex-wrap: wrap; gap: 20px; }
+.demo-box { flex: 1 1 170px; max-width: 220px; background: #fff; color: #253047; transition: border-color .3s ease; }
+.demo-box:hover { border-color: #e11d48; }
+.demo-box h2 { font-size: 1.1rem; margin-top: 0; }
+.solid { border: 4px solid #2563eb; padding: 16px; }
+.dashed { border: 4px dashed #0f766e; padding: 24px; }
+.double { border: 6px double #9333ea; padding: 12px; }
+.groove { border: 6px groove #ea580c; padding: 20px; }
+.rounded { border: 4px solid #475569; border-radius: 24px; padding: 18px; }
+
+
+==============================================================================
+FILE: 02-height-width.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Height and Width Practice Layout</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="02-height-width.css">
+</head>
+<body>
+<header class="page-header"><h1>Height &amp; Width Practice</h1><p>Compare fixed, relative, viewport, and text-relative dimensions.</p></header>
+    <main class="container size-stage">
+      <section class="size-box small"><h2>Box A</h2><p>Width: 180px<br>Height: 120px</p></section>
+      <section class="size-box medium"><h2>Box B</h2><p>Width: 45%<br>Min-height: 12em</p></section>
+      <section class="size-box tall"><h2>Box C</h2><p>Width: 24vw<br>Height: 28vh<br>Max-width: 260px</p><p class="overflow-copy">This extra content demonstrates how overflow: auto allows content to scroll inside a box when it no longer fits.</p></section>
+    </main>
+    <footer class="page-footer">Resize the browser window to compare the different CSS units.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 02-height-width.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Height and Width Practice Layout. */
+/* Center all size examples both vertically and horizontally. */
+.size-stage { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 24px; min-height: 55vh; }
+.size-box { display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 16px; text-align: center; border-radius: 14px; }
+.size-box h2 { margin: 0 0 8px; }
+.small { width: 180px; height: 120px; background: #bfdbfe; }
+.medium { width: 45%; min-height: 12em; max-width: 360px; background: #bbf7d0; }
+.tall { width: 24vw; height: 28vh; min-width: 190px; max-width: 260px; min-height: 220px; background: #fde68a; overflow: auto; }
+.overflow-copy { text-align: left; }
+
+
+==============================================================================
+FILE: 03-gradient-backgrounds.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Background Webpage</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="03-gradient-backgrounds.css">
+</head>
+<body>
+<header class="fixed-header"><a href="#linear">Gradient Studio</a><nav><a href="#linear">Linear</a><a href="#radial">Radial</a></nav></header>
+    <main class="gradient-main">
+      <section class="gradient-section linear" id="linear"><div><h1>Linear Gradient</h1><p>A smooth color transition flows from one direction to another.</p></div></section>
+      <section class="gradient-section radial" id="radial"><div><h2>Radial Gradient</h2><p>Colors radiate outward from a central point.</p></div></section>
+    </main>
+    <footer class="fixed-footer">© 2026 Gradient Studio · CSS backgrounds practice</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 03-gradient-backgrounds.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Gradient Background Webpage. */
+/* Fixed header and footer stay in place while the content scrolls. */
+.fixed-header, .fixed-footer { position: fixed; left: 0; width: 100%; z-index: 5; color: white; background: #172554eF; padding: 14px 6%; }
+.fixed-header { top: 0; display: flex; justify-content: space-between; align-items: center; }
+.fixed-header a { color: white; text-decoration: none; font-weight: bold; }
+.fixed-header nav { display: flex; gap: 20px; }
+.fixed-footer { bottom: 0; text-align: center; }
+.gradient-main { padding: 58px 0; }
+.gradient-section { min-height: 62vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; color: white; }
+.gradient-section div { max-width: 650px; padding: 32px; border-radius: 18px; background: #0f172a44; }
+.linear { background: linear-gradient(120deg, #1d4ed8, #7c3aed, #db2777); background-attachment: fixed; }
+.radial { background: radial-gradient(circle at center, #f97316, #be123c 55%, #4c1d95); }
+
+
+==============================================================================
+FILE: 04-shadows-depth.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadows and Depth Effect Layout</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="04-shadows-depth.css">
+</head>
+<body>
+<header class="page-header"><h1>Shadows &amp; Depth</h1><p>Cards use different shadow styles and lift on hover.</p></header>
+    <main class="container card-row">
+      <article class="profile-card shadow-soft"><div class="avatar">AM</div><h2>Alex Morgan</h2><p>UI Designer</p><p>Creates clear and accessible digital experiences.</p></article>
+      <article class="profile-card shadow-color"><div class="avatar">JS</div><h2>Jamie Singh</h2><p>Web Developer</p><p>Builds responsive websites with thoughtful details.</p></article>
+      <article class="profile-card shadow-deep"><div class="avatar">RK</div><h2>Riley Kumar</h2><p>Product Creator</p><p>Turns useful ideas into practical products.</p></article>
+    </main>
+    <footer class="page-footer">Move your pointer over a card to see its depth effect.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 04-shadows-depth.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Shadows and Depth Effect Layout. */
+/* Three cards share a row and wrap on narrower screens. */
+.card-row { display: flex; align-items: stretch; justify-content: center; gap: 28px; flex-wrap: wrap; }
+.profile-card { flex: 1 1 220px; max-width: 310px; padding: 28px 22px; text-align: center; background: white; border-radius: 16px; transition: transform .3s ease, box-shadow .3s ease; }
+.profile-card:hover { transform: translateY(-10px); box-shadow: 0 22px 35px #0f172a30; }
+.profile-card h2 { text-shadow: 2px 2px 3px #94a3b8; }
+.profile-card p { color: #536176; }
+.avatar { width: 68px; height: 68px; margin: 0 auto 14px; display: grid; place-items: center; border-radius: 50%; background: #dbeafe; color: #1d4ed8; font-weight: bold; }
+.shadow-soft { box-shadow: 0 4px 12px #0f172a16; }
+.shadow-color { box-shadow: 0 8px 24px #7c3aed30; }
+.shadow-deep { box-shadow: 8px 12px 0 #cbd5e1, 0 16px 28px #0f172a1a; }
+
+
+==============================================================================
+FILE: 05-advanced-selectors.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced CSS Selectors</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="05-advanced-selectors.css">
+</head>
+<body>
+<header class="page-header"><h1>Advanced CSS Selectors</h1><p>Attribute selectors, pseudo-classes, pseudo-elements, and combinators.</p></header>
+    <main class="container selector-demo">
+      <section class="selector-panel">
+        <h2>Tasks</h2>
+        <ul class="task-list">
+          <li><span class="status">New</span> Learn attribute selectors</li>
+          <li><span class="status">In progress</span> Practice combinators</li>
+          <li><span class="status">Done</span> Try pseudo-elements</li>
+          <li><span class="status">Next</span> Review selectors</li>
+        </ul>
+        <p class="direct-child">This paragraph is a direct child of the section.</p>
+        <p class="sibling-note">This paragraph follows the direct-child paragraph.</p>
+        <p class="sibling-note">This is another following sibling paragraph.</p>
+        <form class="selector-form">
+          <label for="demo-text">Text input ([type="text"])</label>
+          <input id="demo-text" type="text" placeholder="Click here to focus">
+          <label for="demo-email">Email input</label>
+          <input id="demo-email" type="email" placeholder="name@example.com">
+        </form>
+        <p><a href="https://example.com">Secure-style link (href starts with https)</a></p>
+      </section>
+    </main>
+    <footer class="page-footer">Open the CSS file to see a comment for each selector type.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 05-advanced-selectors.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Advanced CSS Selectors. */
+/* Attribute selector: target only text inputs. */
+input[type="text"] { border: 2px solid #2563eb; background: #eff6ff; }
+/* Attribute selector: href values beginning with https. */
+a[href^="https"] { color: #047857; font-weight: bold; }
+/* Pseudo-classes: hover, focus, and nth-child. */
+.task-list li:hover { background: #dbeafe; }
+input:focus { outline: 3px solid #93c5fd; outline-offset: 2px; }
+.task-list li:nth-child(odd) { border-left: 4px solid #7c3aed; }
+/* Pseudo-elements add decorative content before and after headings. */
+.selector-panel h2::before { content: "✦ "; color: #7c3aed; }
+.selector-panel h2::after { content: " ✦"; color: #7c3aed; }
+/* Child combinator (>): only direct paragraphs of selector-panel. */
+.selector-panel > p { padding: 8px; background: #ecfdf5; }
+/* Adjacent sibling (+): only the first paragraph immediately after .direct-child. */
+.direct-child + .sibling-note { border-top: 2px solid #f59e0b; }
+/* General sibling (~): every .sibling-note after .direct-child is italic. */
+.direct-child ~ .sibling-note { font-style: italic; }
+/* Descendant combinator: spans anywhere inside task-list get a status pill. */
+.task-list .status { display: inline-block; min-width: 88px; color: #4338ca; font-size: .8rem; font-weight: bold; }
+/* Descendant and general page styling. */
+.selector-panel { padding: 24px; background: white; border-radius: 14px; }
+.task-list { padding: 0; list-style: none; }
+.task-list li { padding: 12px; border-bottom: 1px solid #e2e8f0; transition: background .2s; }
+.selector-form { display: grid; gap: 10px; max-width: 420px; }
+.selector-form input { width: 100%; padding: 11px; border: 1px solid #94a3b8; border-radius: 7px; }
+
+
+==============================================================================
+FILE: 06-transformations.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Transformations Showcase</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="06-transformations.css">
+</head>
+<body>
+<header class="page-header"><h1>CSS Transformations</h1><p>Hover over each colored box to activate its transformation.</p></header>
+    <main class="container transform-row">
+      <figure class="transform-item"><div class="transform-box rotate-box">Rotate</div><figcaption>rotate(12deg)</figcaption></figure>
+      <figure class="transform-item"><div class="transform-box scale-box">Scale</div><figcaption>scale(1.12)</figcaption></figure>
+      <figure class="transform-item"><div class="transform-box translate-box">Translate</div><figcaption>translateY(-14px)</figcaption></figure>
+      <figure class="transform-item"><div class="transform-box skew-box">Skew</div><figcaption>skew(-8deg)</figcaption></figure>
+    </main>
+    <footer class="page-footer">Each box uses transition: all 0.4s ease.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 06-transformations.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: CSS Transformations Showcase. */
+/* Flexbox aligns transformation examples in a row. */
+.transform-row { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 36px; padding-top: 50px; padding-bottom: 50px; }
+.transform-item { width: 180px; margin: 0; text-align: center; }
+.transform-box { height: 140px; display: grid; place-items: center; border-radius: 14px; color: white; font-weight: bold; font-size: 1.15rem; transition: all .4s ease; }
+.transform-item figcaption { margin-top: 24px; color: #334155; font-family: monospace; }
+.rotate-box { background: #2563eb; }
+.rotate-box:hover { transform: rotate(12deg); }
+.scale-box { background: #7c3aed; }
+.scale-box:hover { transform: scale(1.12); }
+.translate-box { background: #0f766e; }
+.translate-box:hover { transform: translateY(-14px); }
+.skew-box { background: #c2410c; }
+.skew-box:hover { transform: skew(-8deg); }
+
+
+==============================================================================
+FILE: 07-typography.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography and Text Styling</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="07-typography.css">
+</head>
+<body>
+<header class="page-header"><h1>Typography &amp; Text Styling</h1><p>Font choices and spacing can make content easier to read.</p></header>
+    <main class="container article">
+      <article>
+        <p class="eyebrow">DESIGN NOTES · 4 MIN READ</p>
+        <h2 class="serif-heading">The Art of Clear Communication</h2>
+        <p class="intro">Good typography gives every idea room to breathe. It creates a visual rhythm that helps readers understand what matters most.</p>
+        <h3 class="sans-heading">Choose a readable typeface</h3>
+        <p class="body-copy">A sans-serif font can feel modern and direct, while a serif font may feel more traditional. Keep paragraphs comfortably spaced and use a clear hierarchy of headings. <mark>Important ideas</mark> should stand out without distracting from the message.</p>
+        <p class="body-copy">Use <strong>strong emphasis</strong> for important information and <em>emphasis</em> for a gentle change in tone. Consistent font sizes and line height help readers move through an article naturally.</p>
+        <blockquote>“Clarity is the kindness of good design.”</blockquote>
+      </article>
+    </main>
+    <footer class="page-footer">A typography demonstration using semantic HTML and CSS.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 07-typography.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Typography and Text Styling. */
+/* Demonstrate font families, sizes, weights, and spacing. */
+.article { max-width: 850px; }
+.article article { padding: clamp(20px, 5vw, 52px); background: white; border-radius: 14px; }
+.eyebrow { color: #0f766e; font-size: .78rem; font-weight: 800; letter-spacing: .16em; }
+.serif-heading { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1.12; margin: 12px 0 20px; color: #172554; }
+.intro { font-family: Georgia, serif; font-size: 1.25rem; line-height: 1.8; color: #475569; }
+.sans-heading { font-family: Arial, sans-serif; font-size: 1.35rem; font-weight: 700; }
+.body-copy { font-family: Arial, sans-serif; font-size: 1rem; line-height: 1.9; letter-spacing: .015em; text-align: left; color: #334155; }
+.body-copy::first-letter { font-size: 1.7em; font-weight: bold; color: #2563eb; }
+.intro::first-line { color: #1d4ed8; }
+mark { background: #fef08a; color: #713f12; padding: 2px 5px; }
+strong { color: #1d4ed8; }
+em { color: #0f766e; }
+blockquote { margin: 28px 0 0; padding: 16px 22px; border-left: 4px solid #7c3aed; background: #f5f3ff; font-family: Georgia, serif; font-size: 1.15rem; }
+
+
+==============================================================================
+FILE: 08-box-model.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Box Model Exploration</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="08-box-model.css">
+</head>
+<body>
+<header class="page-header"><h1>CSS Box Model</h1><p>Content, padding, border, and margin each affect an element's space.</p></header>
+    <main class="container model-layout">
+      <section class="model-example">
+        <h2>Default content-box</h2>
+        <div class="margin-layer"><span class="layer-label">MARGIN</span><div class="border-layer"><span class="layer-label">BORDER</span><div class="padding-layer"><span class="layer-label">PADDING</span><div class="content-layer">CONTENT<br>Width: 160px</div></div></div></div>
+        <p>The declared width applies to the content only. Padding and border add to the final width.</p>
+      </section>
+      <section class="model-example">
+        <h2>With border-box</h2>
+        <div class="border-box-demo"><div class="border-box-content">CONTENT<br>Declared width: 220px</div></div>
+        <p>With <code>box-sizing: border-box</code>, the declared width includes the content, padding, and border.</p>
+      </section>
+    </main>
+    <footer class="page-footer">The margin is outside the border; padding is inside the border.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 08-box-model.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Box Model Exploration. */
+/* Center both box-model examples using Flexbox. */
+.model-layout { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 36px; }
+.model-example { flex: 1 1 300px; max-width: 460px; text-align: center; }
+.margin-layer { margin: 26px auto; padding: 10px; width: fit-content; background: #fde68a; outline: 2px dashed #b45309; }
+.border-layer { padding: 8px; background: #fca5a5; border: 5px solid #b91c1c; }
+.padding-layer { padding: 18px; background: #bfdbfe; }
+.content-layer { width: 160px; min-height: 80px; display: grid; place-content: center; background: #bbf7d0; color: #14532d; font-weight: bold; }
+.layer-label { display: block; margin: 3px; font-size: .7rem; font-weight: bold; color: #334155; }
+.border-box-demo { width: 220px; margin: 26px auto; padding: 20px; border: 8px solid #7c3aed; background: #ddd6fe; box-sizing: border-box; }
+.border-box-content { min-height: 80px; display: grid; place-content: center; background: #c4b5fd; font-weight: bold; }
+
+
+==============================================================================
+FILE: 09-outline-focus-form.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Outline and Focus Styling Form</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="09-outline-focus-form.css">
+</head>
+<body>
+<header class="page-header"><h1>Outline &amp; Focus Styling</h1><p>Click or tab into each field to see its focus outline.</p></header>
+    <main class="container form-container">
+      <form class="contact-form">
+        <h2>Contact Us</h2>
+        <label for="name">Your name</label>
+        <input id="name" name="name" type="text" placeholder="Enter your name" class="outline-solid">
+        <label for="email">Email address</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" class="outline-dashed">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Write your message..." class="outline-offset"></textarea>
+        <button type="submit">Send message</button>
+      </form>
+    </main>
+    <footer class="page-footer">Demo form only; no JavaScript or backend is connected.</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 09-outline-focus-form.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Outline and Focus Styling Form. */
+/* Keep the form centered and controls evenly spaced. */
+.form-container { display: flex; justify-content: center; align-items: center; }
+.contact-form { display: grid; gap: 12px; width: min(100%, 480px); padding: 28px; background: white; border-radius: 14px; box-shadow: 0 10px 28px #0f172a12; }
+.contact-form h2 { margin: 0 0 8px; }
+.contact-form label { font-weight: bold; color: #334155; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 12px; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; box-shadow: 0 2px 5px #0f172a0a; }
+.outline-solid { outline: 2px solid #bfdbfe; outline-offset: 2px; }
+.outline-dashed { outline: 2px dashed #c4b5fd; outline-offset: 3px; }
+.outline-offset { outline: 2px dotted #99f6e4; outline-offset: 4px; }
+/* Focus selector changes outline color when a control is active. */
+.contact-form input:focus, .contact-form textarea:focus { outline: 3px solid #2563eb; outline-offset: 3px; border-color: #2563eb; }
+.contact-form button { border: 0; padding: 12px 16px; border-radius: 8px; background: #1d4ed8; color: white; font: inherit; font-weight: bold; cursor: pointer; }
+.contact-form button:hover { background: #1e40af; }
+
+
+==============================================================================
+FILE: 10-navbar-transitions.html
+==============================================================================
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navigation Bar with Transitions</title>
+  <!-- Each question has its own external CSS file. -->
+  <link rel="stylesheet" href="10-navbar-transitions.css">
+</head>
+<body>
+<header class="page-header"><h1>Responsive Navigation</h1><p>Five links with transitions and a clear active state.</p></header>
+    <main class="container nav-demo">
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#home" class="active" aria-current="page">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <section class="welcome" id="home"><h2>Welcome</h2><p>This example demonstrates a simple, responsive navigation bar. Hover or keyboard-focus a link to see the transition.</p></section>
+    </main>
+    <footer class="page-footer">© 2026 Responsive Navigation Demo</footer>
+</body>
+</html>
+
+
+==============================================================================
+FILE: 10-navbar-transitions.css
+==============================================================================
+
+/* Shared styles for the CSS practice assignment. */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1e293b; background: #f1f5f9; line-height: 1.6; }
+.page-header { padding: 28px 20px; text-align: center; color: #fff; background: #172554; }
+.page-header h1 { margin: 0 0 6px; line-height: 1.2; }
+.page-header p { margin: 0; color: #dbeafe; }
+.container { width: min(1100px, calc(100% - 36px)); margin: 36px auto; }
+.page-footer { padding: 18px; text-align: center; color: #475569; background: #e2e8f0; }
+@media (max-width: 600px) {
+  .container { width: calc(100% - 24px); margin: 24px auto; }
+  .page-header { padding: 24px 14px; }
+}
+
+
+/* Question-specific styles: Navigation Bar with Transitions. */
+/* Horizontal navigation with smooth transitions. */
+.main-nav { display: flex; justify-content: space-around; align-items: center; gap: 8px; padding: 12px; background: #172554; border-radius: 12px; }
+.main-nav a { flex: 1; text-align: center; padding: 13px 12px; border: 1px solid transparent; border-radius: 8px; color: white; text-decoration: none; font-weight: bold; transition: all .3s ease; }
+.main-nav a:hover, .main-nav a:focus-visible { background: #1d4ed8; border-color: #93c5fd; transform: translateY(-2px); outline: none; }
+.main-nav a.active { background: #0f766e; border-color: #99f6e4; box-shadow: inset 0 -3px 0 #99f6e4; }
+.welcome { margin-top: 24px; padding: 26px; border-radius: 12px; background: white; }
+@media (max-width: 700px) {
+  .main-nav { flex-direction: column; align-items: stretch; }
+  .main-nav a { width: 100%; }
+}
