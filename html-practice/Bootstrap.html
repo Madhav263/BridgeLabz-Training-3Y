@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap Assignment - Solutions 1 to 10</title>
+
+<!-- Bootstrap 5 CSS via CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Google Font used in Solution 5 -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+  body { background: #e9edf2; }
+  .sol { max-width: 1100px; margin: 30px auto; background: #fff; border-radius: 10px;
+         box-shadow: 0 2px 10px rgba(0,0,0,.1); overflow: hidden; }
+  .sol-title { margin: 0; padding: 12px 20px; background: #212529; color: #fff; font-size: 1.05rem; }
+
+  /* Q3: product hover effect */
+  .q3 .product { transition: transform .3s ease, box-shadow .3s ease; }
+  .q3 .product:hover { transform: translateY(-6px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.2) !important; }
+
+  /* Q5: custom theme (overrides scoped to this section) */
+  .q5 {
+    --bs-primary: #e8590c;
+    --bs-primary-rgb: 232, 89, 12;
+    --bs-font-sans-serif: 'Poppins', sans-serif;
+    font-family: var(--bs-font-sans-serif);
+  }
+  .q5 h1, .q5 h2, .q5 h3, .q5 h4, .q5 h5 { color: var(--bs-primary); font-weight: 700; }
+  .q5 .btn-primary {
+    --bs-btn-bg: #e8590c; --bs-btn-border-color: #e8590c;
+    --bs-btn-hover-bg: #c44a08; --bs-btn-hover-border-color: #c44a08;
+    --bs-btn-active-bg: #a63d06; --bs-btn-active-border-color: #a63d06;
+  }
+  .q5 .card { border: 0; border-top: 4px solid var(--bs-primary); }
+  .q5 .theme-header, .q5 .theme-footer { background: var(--bs-primary); color: #fff; }
+  .q5 .theme-header h1 { color: #fff; }
+
+  /* Q8: pricing hover */
+  .q8 .plan { transition: transform .3s ease, box-shadow .3s ease; }
+  .q8 .plan:hover { transform: translateY(-8px); box-shadow: 0 1rem 3rem rgba(0,0,0,.25) !important; }
+</style>
+</head>
+<body>
+
+<!-- ======================= 1. COMPANY LANDING PAGE ======================= -->
+<section class="sol q1">
+  <h2 class="sol-title">1. Company Landing Page (Intro to Bootstrap)</h2>
+
+  <header class="bg-dark text-white">
+    <nav class="navbar navbar-expand-md navbar-dark container-fluid px-4">
+      <a class="navbar-brand fw-bold" href="#">StartupX</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav1">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav1">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="bg-light text-center py-5">
+    <div class="container">
+      <h1 class="display-4 fw-bold">Build Faster with StartupX</h1>
+      <p class="lead text-muted">The simple way to launch, grow and manage your business online.</p>
+      <a href="#" class="btn btn-primary btn-lg mt-2">Get Started</a>
+    </div>
+  </section>
+
+  <div class="container py-4">
+    <div class="row text-center g-3">
+      <div class="col-md"><h5>Fast</h5><p class="text-muted mb-0">Quick setup in minutes.</p></div>
+      <div class="col-md"><h5>Responsive</h5><p class="text-muted mb-0">Works on every screen.</p></div>
+      <div class="col-md"><h5>Reliable</h5><p class="text-muted mb-0">Built on Bootstrap's grid.</p></div>
+    </div>
+    <p class="text-center mt-3 mb-0"><span class="badge text-bg-secondary" id="bsCheck">Checking Bootstrap...</span></p>
+  </div>
+</section>
+
+<!-- ======================= 2. PERSONAL PORTFOLIO BASICS ======================= -->
+<section class="sol q2">
+  <h2 class="sol-title">2. Personal Portfolio Basics (Bootstrap Utilities)</h2>
+  <div class="container text-center">
+    <header class="bg-light text-dark p-5 mt-4 mb-3 rounded">
+      <h1 class="fw-bold">Madhav</h1>
+      <p class="mb-0">Backend Developer &amp; Machine Learning Enthusiast</p>
+    </header>
+
+    <img src="https://picsum.photos/id/1005/200/200" class="img-fluid rounded-circle mb-3" alt="Profile photo" width="160" height="160">
+
+    <div class="mb-4">
+      <button class="btn btn-primary me-2">Hire Me</button>
+      <button class="btn btn-outline-dark">Download CV</button>
+    </div>
+
+    <form class="mx-auto text-start pb-4" style="max-width: 420px;">
+      <h5 class="text-center fw-bold">Contact Me</h5>
+      <div class="mb-3"><input type="text" class="form-control" placeholder="Your name"></div>
+      <div class="mb-3"><input type="email" class="form-control" placeholder="Your email"></div>
+      <div class="mb-3"><textarea class="form-control" rows="3" placeholder="Message"></textarea></div>
+      <button type="submit" class="btn btn-success w-100">Send</button>
+    </form>
+  </div>
+</section>
+
+<!-- ======================= 3. PRODUCT CATALOG ======================= -->
+<section class="sol q3">
+  <h2 class="sol-title">3. Product Catalog (Bootstrap Grid System)</h2>
+  <div class="container py-4">
+    <div class="row g-4">
+      <!-- col-12: mobile 1 column | col-sm-6: tablet 2 columns | col-md-3: desktop 4 columns -->
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/160/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Camera</h5><p class="fw-bold">$250</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/180/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Laptop</h5><p class="fw-bold">$900</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/119/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Desk Setup</h5><p class="fw-bold">$120</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/26/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Accessories</h5><p class="fw-bold">$45</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/96/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Headphones</h5><p class="fw-bold">$75</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/250/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Lens Kit</h5><p class="fw-bold">$180</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/366/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Tripod</h5><p class="fw-bold">$60</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+      <div class="col-12 col-sm-6 col-md-3"><div class="card h-100 shadow-sm product">
+        <img src="https://picsum.photos/id/403/300/200" class="card-img-top" alt="">
+        <div class="card-body d-flex flex-column"><h5 class="card-title">Backpack</h5><p class="fw-bold">$55</p><a href="#" class="btn btn-primary mt-auto">Add to Cart</a></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 4. RESTAURANT MENU PAGE ======================= -->
+<section class="sol q4">
+  <h2 class="sol-title">4. Restaurant Menu Page (Bootstrap CSS Components)</h2>
+  <div class="container py-4">
+    <h2 class="text-center">Today's Menu</h2>
+    <p class="lead text-center text-muted">Fresh ingredients, cooked daily.</p>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr><th>Item</th><th>Category</th><th class="text-end">Price</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Tomato Soup</td><td>Starter</td><td class="text-end">$6</td></tr>
+              <tr><td>Garlic Bread</td><td>Starter</td><td class="text-end">$5</td></tr>
+              <tr><td>Paneer Butter Masala</td><td>Main Course</td><td class="text-end">$12</td></tr>
+              <tr><td>Veg Biryani</td><td>Main Course</td><td class="text-end">$11</td></tr>
+              <tr><td>Gulab Jamun</td><td>Dessert</td><td class="text-end">$5</td></tr>
+              <tr><td>Masala Chai</td><td>Beverage</td><td class="text-end">$3</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <h5 class="text-center">Chef's Specials</h5>
+        <ul class="list-group mb-3">
+          <li class="list-group-item">Butter Chicken Platter</li>
+          <li class="list-group-item">Stuffed Naan Combo</li>
+          <li class="list-group-item">Chocolate Lava Cake</li>
+        </ul>
+        <figure class="text-center">
+          <img src="https://picsum.photos/id/292/400/260" class="img-fluid rounded" alt="Food">
+          <figcaption class="figure-caption mt-1">Today's signature dish</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 5. CUSTOM THEMED BLOG ======================= -->
+<section class="sol q5">
+  <h2 class="sol-title">5. Custom Themed Blog Homepage (Bootstrap Themes)</h2>
+  <header class="theme-header text-center py-4">
+    <h1 class="mb-1">The Orange Blog</h1>
+    <p class="mb-0">Stories on code, design and ideas</p>
+  </header>
+
+  <div class="container py-4">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <img src="https://picsum.photos/id/1015/600/300" class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Getting Started with Bootstrap</h4>
+            <p class="card-text">Learn the grid, utilities and components that make responsive design easy.</p>
+            <a href="#" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <img src="https://picsum.photos/id/1016/600/300" class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Customising Your Theme</h4>
+            <p class="card-text">Override CSS variables and use Google Fonts to give your site a personal look.</p>
+            <a href="#" class="btn btn-primary">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="theme-footer text-center py-3">&copy; 2026 The Orange Blog</footer>
+</section>
+
+<!-- ======================= 6. NOTIFICATIONS DASHBOARD ======================= -->
+<section class="sol q6">
+  <h2 class="sol-title">6. Notifications Dashboard (Alerts &amp; Wells)</h2>
+  <div class="container py-4">
+    <div class="card">
+      <div class="card-header fw-bold">Notifications</div>
+      <div class="card-body">
+        <div class="alert alert-success" role="alert"><strong>New message:</strong> You have 3 unread messages.</div>
+        <div class="alert alert-info" role="alert"><strong>Tip:</strong> Use keyboard shortcuts to work faster.</div>
+        <div class="alert alert-danger" role="alert"><strong>Warning:</strong> Your storage is almost full.</div>
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Heads up!</strong> This alert can be dismissed.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- Summary "well" -->
+        <div class="bg-light border rounded p-3">
+          <h6 class="mb-1">Summary</h6>
+          <p class="mb-0 text-muted">3 new messages, 1 tip and 1 warning today.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 7. TASK TRACKER WITH BADGES ======================= -->
+<section class="sol q7">
+  <h2 class="sol-title">7. Task Tracker with Badges</h2>
+  <div class="container py-4" style="max-width: 700px;">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="mb-0">My Tasks</h3>
+      <span class="fs-6">Pending <span class="badge rounded-pill text-bg-primary">4</span></span>
+    </div>
+
+    <ul class="list-group mb-3">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Finish project report <span class="badge text-bg-danger">High</span></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Prepare presentation <span class="badge text-bg-warning">Medium</span></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Reply to emails <span class="badge text-bg-success">Low</span></li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Update portfolio <span class="badge text-bg-warning">Medium</span></li>
+    </ul>
+
+    <button type="button" class="btn btn-success">
+      Completed <span class="badge text-bg-light">6</span>
+    </button>
+  </div>
+</section>
+
+<!-- ======================= 8. PRICING PLANS ======================= -->
+<section class="sol q8">
+  <h2 class="sol-title">8. Pricing Plans (Panels &amp; Cards)</h2>
+  <div class="container py-4">
+    <h2 class="text-center mb-4">Choose Your Plan</h2>
+    <div class="row g-4 align-items-center">
+      <div class="col-md-4">
+        <div class="card plan text-center shadow-sm h-100">
+          <div class="card-body">
+            <h4 class="card-title">Basic</h4>
+            <h2 class="my-3">$9<small class="fs-6 text-muted">/mo</small></h2>
+            <ul class="list-unstyled mb-4"><li>1 Project</li><li>Email support</li><li>1 GB storage</li></ul>
+            <a href="#" class="btn btn-outline-primary">Select</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card plan text-center shadow bg-primary text-white h-100">
+          <div class="card-body py-5">
+            <h4 class="card-title">Pro</h4>
+            <h2 class="my-3">$29<small class="fs-6">/mo</small></h2>
+            <ul class="list-unstyled mb-4"><li>10 Projects</li><li>Priority support</li><li>20 GB storage</li></ul>
+            <a href="#" class="btn btn-light">Select</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card plan text-center shadow-sm h-100">
+          <div class="card-body">
+            <h4 class="card-title">Premium</h4>
+            <h2 class="my-3">$59<small class="fs-6 text-muted">/mo</small></h2>
+            <ul class="list-unstyled mb-4"><li>Unlimited projects</li><li>24/7 support</li><li>100 GB storage</li></ul>
+            <a href="#" class="btn btn-outline-primary">Select</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 9. PAGINATION & PAGER ======================= -->
+<section class="sol q9">
+  <h2 class="sol-title">9. Blog Pagination &amp; Pager</h2>
+  <div class="container py-4">
+    <article class="mb-4">
+      <h4>Latest Blog Posts</h4>
+      <p class="text-muted">Browse through our posts using the pagination below.</p>
+    </article>
+
+    <nav aria-label="Blog pagination">
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+
+    <!-- Simple pager -->
+    <div class="d-flex justify-content-between mt-3">
+      <a href="#" class="btn btn-outline-secondary">&larr; Older Posts</a>
+      <a href="#" class="btn btn-outline-secondary">Newer Posts &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= 10. TRAVEL AGENCY SHOWCASE ======================= -->
+<section class="sol q10">
+  <h2 class="sol-title">10. Travel Agency Showcase (Carousel &amp; Progress Bar)</h2>
+
+  <div id="travelCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#travelCarousel" data-bs-slide-to="2"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="3000">
+        <img src="https://picsum.photos/id/1018/1000/420" class="d-block w-100" alt="Mountains" style="height:380px;object-fit:cover;">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+          <h5>Swiss Alps</h5><p>Snowy peaks and scenic trails.</p></div>
+      </div>
+      <div class="carousel-item" data-bs-interval="5000">
+        <img src="https://picsum.photos/id/1015/1000/420" class="d-block w-100" alt="River valley" style="height:380px;object-fit:cover;">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+          <h5>River Valley</h5><p>Peaceful nature getaways.</p></div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="https://picsum.photos/id/1019/1000/420" class="d-block w-100" alt="Coast" style="height:380px;object-fit:cover;">
+        <div class="carousel-caption d-none d-md-block bg-dark bg-opacity-50 rounded">
+          <h5>Coastal Escape</h5><p>Sun, sea and sand.</p></div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#travelCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></button>
+    <button class="carousel-control-next" type="button" data-bs-target="#travelCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></button>
+  </div>
+
+  <div class="container py-4">
+    <h6>Booking completion</h6>
+    <div class="progress" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 70%">70%</div>
+    </div>
+  </div>
+
+  <footer class="bg-dark text-white text-center py-3">
+    Contact: info@travelagency.com | +91 00000 00000 | 12 Main Street, India
+  </footer>
+</section>
+
+<!-- Bootstrap JS bundle via CDN (needed for navbar toggle, alerts, carousel) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Solution 1: verify that Bootstrap loaded correctly
+  (function () {
+    var el = document.getElementById('bsCheck');
+    if (window.bootstrap) {
+      el.textContent = 'Bootstrap loaded successfully';
+      el.className = 'badge text-bg-success';
+      console.log('Bootstrap version:', bootstrap.Tooltip.VERSION);
+    } else {
+      el.textContent = 'Bootstrap failed to load';
+      el.className = 'badge text-bg-danger';
+    }
+  })();
+</script>
+</body>
+</html>
