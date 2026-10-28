@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 HTML & CSS Layout Solutions</title>
+<style>
+/* Shared page styling */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; color: #202938; background: #f3f6fb; line-height: 1.5; }
+.page-header { background: #172554; color: white; padding: 28px 20px; text-align: center; }
+.page-header h1 { margin: 0 0 8px; }
+.page-header p { margin: 0; }
+.demo { background: white; margin: 24px auto; padding: 24px; width: min(1100px, calc(100% - 32px)); border-radius: 14px; box-shadow: 0 4px 16px #15233b12; }
+.demo h2 { margin-top: 0; color: #1d4ed8; }
+.demo-note { color: #596579; margin-top: -8px; }
+.demo-footer { text-align: center; padding: 20px; color: #64748b; }
+
+/* 1. Personal portfolio with Flexbox */
+.portfolio { border: 1px solid #dbe3ef; border-radius: 10px; overflow: hidden; }
+.portfolio header { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 22px; background: #0f172a; color: white; }
+.portfolio header h3 { margin: 0; }
+.portfolio nav { display: flex; flex-wrap: wrap; gap: 16px; }
+.portfolio a { color: inherit; text-decoration: none; }
+.portfolio-main { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 30px; }
+.portfolio-about, .portfolio-image { flex: 1; min-width: 0; }
+.portfolio-image { min-height: 180px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg,#bfdbfe,#ddd6fe); border-radius: 10px; font-size: 68px; }
+.portfolio footer { text-align: center; background: #e8eef7; padding: 12px; }
+
+/* 2. Four-column product gallery with Grid */
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; align-items: stretch; }
+.product-card { min-height: 150px; padding: 20px 14px; border-radius: 10px; background: #eef2ff; border: 1px solid #c7d2fe; display: flex; flex-direction: column; justify-content: space-between; transition: transform .3s ease, box-shadow .3s ease; }
+.product-card:hover { transform: scale(1.05); box-shadow: 0 10px 22px #1e293b24; }
+.product-card h3 { margin: 0 0 12px; font-size: 17px; }
+.product-card p { margin: 0; color: #1d4ed8; font-weight: bold; }
+
+/* 3. Flexbox homepage */
+.flex-home { min-height: 280px; display: flex; flex-direction: column; border: 1px solid #dbe3ef; border-radius: 10px; overflow: hidden; }
+.flex-home header { display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 12px; padding: 18px; background: #0f766e; color: white; }
+.flex-home main { display: flex; align-items: stretch; justify-content: center; flex: 1; gap: 16px; padding: 22px; }
+.home-box { flex: 1; min-height: 100px; display: flex; align-items: center; justify-content: center; text-align: center; background: #ccfbf1; border-radius: 10px; transition: transform .25s ease; font-weight: bold; }
+.home-box:hover { transform: rotate(2deg); }
+.flex-home footer { background: #134e4a; color: white; text-align: center; padding: 12px; }
+
+/* 4. CSS Grid dashboard */
+.dashboard { display: grid; grid-template-columns: 190px minmax(0, 1fr); grid-template-rows: auto 1fr; gap: 16px; }
+.dashboard header { grid-column: 1 / -1; padding: 18px; color: white; background: #312e81; border-radius: 9px; }
+.dashboard header h3 { margin: 0; }
+.dashboard aside { padding: 20px; background: #eef2ff; border-radius: 9px; }
+.dashboard aside a { display: block; color: #3730a3; text-decoration: none; padding: 8px 0; }
+.dashboard-content { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.dash-box { min-height: 110px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px; background: #e0e7ff; border-radius: 9px; transition: transform .25s ease, box-shadow .25s ease; }
+.dash-box:first-child { grid-column: span 2; }
+.dash-box:hover { transform: scale(1.03); box-shadow: 0 10px 22px #1e1b4b2b; }
+
+/* 5. Pricing cards */
+.pricing { display: flex; align-items: stretch; justify-content: center; gap: 18px; }
+.price-card { flex: 1; padding: 24px 18px; text-align: center; border: 1px solid #dbe3ef; border-radius: 12px; background: #f8fafc; animation: fadeUp .8s ease both; transition: transform .3s ease; }
+.price-card:nth-child(2) { flex-grow: 1.12; background: #dbeafe; border: 2px solid #2563eb; }
+.price-card:nth-child(2) { animation-delay: .15s; }
+.price-card:nth-child(3) { animation-delay: .3s; }
+.price-card:hover { transform: translateY(-10px); }
+.price-card h3 { margin: 0 0 8px; }
+.price { font-size: 28px; font-weight: bold; color: #1d4ed8; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+
+/* 6. Blog layout with Grid areas */
+.blog-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); grid-template-areas: "header header" "sidebar posts" "footer footer"; gap: 18px; }
+.blog-layout header { grid-area: header; background: #7c2d12; color: white; padding: 18px; border-radius: 9px; display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.blog-layout header h3 { margin: 0; }
+.blog-layout nav { display: flex; gap: 14px; }
+.blog-layout aside { grid-area: sidebar; background: #ffedd5; padding: 18px; border-radius: 9px; }
+.blog-layout aside ul { padding-left: 20px; }
+.blog-posts { grid-area: posts; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.blog-post { padding: 18px; background: #fff7ed; border: 1px solid #fed7aa; border-radius: 9px; }
+.blog-post h4 { margin-top: 0; }
+.blog-layout footer { grid-area: footer; text-align: center; padding: 14px; background: #ffedd5; border-radius: 9px; }
+
+/* 7. Three-dot loading animation */
+.loader-demo { min-height: 150px; display: flex; justify-content: center; align-items: center; gap: 12px; background: #0f172a; border-radius: 10px; }
+.dot { width: 18px; height: 18px; background: #60a5fa; border-radius: 50%; animation: bounce .65s ease-in-out infinite alternate; }
+.dot:nth-child(2) { animation-delay: .2s; }
+.dot:nth-child(3) { animation-delay: .4s; }
+@keyframes bounce { from { transform: translateY(0); } to { transform: translateY(-24px); } }
+
+/* 8. Responsive photo gallery */
+.photo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 18px; }
+.photo-grid figure { margin: 0; overflow: hidden; border-radius: 10px; background: #f1f5f9; box-shadow: 0 2px 8px #0f172a12; }
+.photo-grid img { display: block; width: 100%; height: 170px; object-fit: cover; transition: transform .5s ease; }
+.photo-grid figure:hover img { transform: scale(1.08); }
+.photo-grid figcaption { padding: 12px; text-align: center; font-weight: bold; }
+
+/* 9. Flip card */
+.flip-stage { display: flex; align-items: center; justify-content: center; padding: 20px; perspective: 1000px; }
+.flip-card { width: 280px; height: 230px; position: relative; transform-style: preserve-3d; transition: transform .7s ease; }
+.flip-card:hover { transform: rotateY(180deg); }
+.flip-face { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; border-radius: 12px; backface-visibility: hidden; }
+.flip-front { color: white; background: linear-gradient(135deg,#2563eb,#7c3aed); }
+.flip-front .emoji { font-size: 54px; }
+.flip-back { background: #dbeafe; transform: rotateY(180deg); }
+
+/* 10. Combined Flexbox + Grid layout */
+.combined { display: grid; grid-template-columns: minmax(0, 2fr) minmax(180px, 1fr); grid-template-areas: "header header" "article sidebar" "footer footer"; gap: 18px; }
+.combined header { grid-area: header; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; padding: 18px; background: #164e63; color: white; border-radius: 9px; }
+.combined header h3 { margin: 0; }
+.combined nav { display: flex; gap: 16px; }
+.combined article { grid-area: article; padding: 20px; background: #ecfeff; border-radius: 9px; }
+.combined aside { grid-area: sidebar; padding: 20px; background: #cffafe; border-radius: 9px; }
+.combined footer { grid-area: footer; text-align: center; padding: 14px; color: white; background: #164e63; border-radius: 9px; }
+.combined-boxes { display: flex; gap: 12px; margin-top: 18px; }
+.combined-box { flex: 1; min-height: 90px; display: flex; align-items: center; justify-content: center; text-align: center; background: #a5f3fc; border-radius: 8px; padding: 12px; }
+.animated-title { animation: titleEnter .8s ease both; }
+@keyframes titleEnter { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Responsive rules */
+@media (max-width: 800px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .blog-layout { grid-template-columns: 1fr; grid-template-areas: "header" "posts" "sidebar" "footer"; }
+}
+@media (max-width: 750px) {
+  .pricing { flex-direction: column; }
+  .price-card:nth-child(2) { flex-grow: 1; }
+}
+@media (max-width: 700px) {
+  .portfolio header, .portfolio-main { flex-direction: column; text-align: center; }
+  .portfolio nav { justify-content: center; }
+  .flex-home main { flex-direction: column; }
+  .dashboard { grid-template-columns: 1fr; }
+  .dashboard header { grid-column: 1; }
+  .dashboard-content { grid-template-columns: 1fr; }
+  .dash-box:first-child { grid-column: span 1; }
+  .combined { grid-template-columns: 1fr; grid-template-areas: "header" "article" "sidebar" "footer"; }
+}
+@media (max-width: 560px) {
+  .product-grid, .blog-posts { grid-template-columns: 1fr; }
+  .dashboard-content { grid-template-columns: 1fr; }
+  .combined-boxes { flex-direction: column; }
+  .blog-layout header { flex-direction: column; }
+  .demo { padding: 17px; width: calc(100% - 20px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+</style>
+</head>
+<body>
+<div class="page-header">
+  <h1>10 HTML &amp; CSS Layout Solutions</h1>
+  <p>One complete HTML file with all ten examples. Save this file and open it in your browser.</p>
+</div>
+
+<section class="demo" id="solution-1">
+  <h2>1. Personal Portfolio — Flexbox</h2>
+  <p class="demo-note">Header items align horizontally; the main content stacks below 700px.</p>
+  <div class="portfolio">
+    <header>
+      <h3>Alex Morgan</h3>
+      <nav><a href="#about-me">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Education</a></nav>
+    </header>
+    <main class="portfolio-main">
+      <section class="portfolio-about" id="about-me">
+        <h3>About Me</h3>
+        <p>Hello! I'm a creative web developer who enjoys building clean, accessible, responsive websites with HTML and CSS.</p>
+        <p><strong>Skills:</strong> HTML, CSS, Flexbox, Grid</p>
+      </section>
+      <div class="portfolio-image" role="img" aria-label="Illustrated profile avatar">👩‍💻</div>
+    </main>
+    <footer>© 2026 Alex Morgan. All rights reserved.</footer>
+  </div>
+</section>
+
+<section class="demo" id="solution-2">
+  <h2>2. Product Gallery — CSS Grid</h2>
+  <p class="demo-note">Four columns on wide screens, two on tablets, and one on small phones.</p>
+  <div class="product-grid">
+    <article class="product-card"><h3>Wireless Headphones</h3><p>₹2,499</p></article>
+    <article class="product-card"><h3>Smart Watch</h3><p>₹3,999</p></article>
+    <article class="product-card"><h3>Travel Backpack</h3><p>₹1,799</p></article>
+    <article class="product-card"><h3>Bluetooth Speaker</h3><p>₹1,299</p></article>
+    <article class="product-card"><h3>Mechanical Keyboard</h3><p>₹4,499</p></article>
+    <article class="product-card"><h3>Wireless Mouse</h3><p>₹899</p></article>
+    <article class="product-card"><h3>USB-C Hub</h3><p>₹1,099</p></article>
+    <article class="product-card"><h3>Desk Lamp</h3><p>₹1,499</p></article>
+  </div>
+</section>
+
+<section class="demo" id="solution-3">
+  <h2>3. Homepage — Flexbox</h2>
+  <p class="demo-note">Navigation uses justify-content: space-around; hover over a box to rotate it.</p>
+  <div class="flex-home">
+    <header><a href="#solution-3">Home</a><a href="#services">Services</a><a href="#projects-home">Projects</a><a href="#contact-home">Contact</a></header>
+    <main>
+      <div class="home-box" id="services">Services</div>
+      <div class="home-box" id="projects-home">Projects</div>
+      <div class="home-box" id="contact-home">Contact</div>
+    </main>
+    <footer>© 2026 Flex Homepage</footer>
+  </div>
+</section>
+
+<section class="demo" id="solution-4">
+  <h2>4. Dashboard — CSS Grid</h2>
+  <p class="demo-note">The first content box spans two columns. Hover over boxes to scale and add a shadow.</p>
+  <div class="dashboard">
+    <header><h3>Admin Dashboard</h3></header>
+    <aside><strong>Navigation</strong><a href="#overview">Overview</a><a href="#analytics">Analytics</a><a href="#reports">Reports</a><a href="#settings">Settings</a></aside>
+    <div class="dashboard-content">
+      <div class="dash-box" id="overview">Overview — spans two columns</div>
+      <div class="dash-box" id="analytics">Analytics</div>
+      <div class="dash-box" id="reports">Reports</div>
+      <div class="dash-box" id="settings">Settings</div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="solution-5">
+  <h2>5. Pricing Cards — Flexbox + Animation</h2>
+  <p class="demo-note">Cards fade in on page load, rise on hover, and stack below 750px.</p>
+  <div class="pricing">
+    <article class="price-card"><h3>Basic</h3><p class="price">₹199</p><p>per month</p><p>✓ 5 projects<br>✓ Email support</p></article>
+    <article class="price-card"><h3>Pro — Popular</h3><p class="price">₹499</p><p>per month</p><p>✓ Unlimited projects<br>✓ Priority support<br>✓ Analytics</p></article>
+    <article class="price-card"><h3>Premium</h3><p class="price">₹999</p><p>per month</p><p>✓ Everything in Pro<br>✓ Dedicated support</p></article>
+  </div>
+</section>
+
+<section class="demo" id="solution-6">
+  <h2>6. Blog Layout — CSS Grid Areas</h2>
+  <p class="demo-note">Below 800px, the sidebar moves below the blog posts.</p>
+  <div class="blog-layout">
+    <header><h3>Everyday Journal</h3><nav><a href="#blog-home" style="color:white">Home</a><a href="#blog-posts" style="color:white">Articles</a><a href="#blog-contact" style="color:white">Contact</a></nav></header>
+    <aside><h4>Categories</h4><ul><li>Technology</li><li>Travel</li><li>Lifestyle</li><li>Learning</li></ul></aside>
+    <main class="blog-posts" id="blog-posts">
+      <article class="blog-post"><h4>Getting Started with CSS Grid</h4><p>Learn how rows, columns, and gaps can help you build flexible page layouts.</p><small>5 minute read</small></article>
+      <article class="blog-post"><h4>Simple Ways to Stay Creative</h4><p>Small daily habits can help you discover new ideas and keep your projects moving.</p><small>3 minute read</small></article>
+    </main>
+    <footer id="blog-contact">Contact: hello@example.com · © 2026 Everyday Journal</footer>
+  </div>
+</section>
+
+<section class="demo" id="solution-7">
+  <h2>7. Loading Animation — Divs + Keyframes</h2>
+  <p class="demo-note">Three circles bounce continuously with staggered animation delays.</p>
+  <div class="loader-demo" role="img" aria-label="Three animated loading dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+</section>
+
+<section class="demo" id="solution-8">
+  <h2>8. Responsive Photo Gallery — Grid</h2>
+  <p class="demo-note">The grid automatically adjusts to available width. Hover over an image to zoom.</p>
+  <div class="photo-grid">
+    <figure><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Mountain landscape"><figcaption>Mountain Escape</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Lake and mountains"><figcaption>Quiet Lake</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Ocean beach"><figcaption>Sunny Beach</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&amp;fit=crop&amp;w=700&amp;q=80" alt="Sunlight in a forest"><figcaption>Forest Trail</figcaption></figure>
+  </div>
+</section>
+
+<section class="demo" id="solution-9">
+  <h2>9. Flip Card — CSS Transformations</h2>
+  <p class="demo-note">Hover over the card to flip it 180 degrees and reveal the back.</p>
+  <div class="flip-stage">
+    <div class="flip-card">
+      <div class="flip-face flip-front"><div class="emoji">🌌</div><h3>Explore the Universe</h3><p>Hover to flip</p></div>
+      <div class="flip-face flip-back"><h3>Discover More</h3><p>The universe contains billions of galaxies, each with countless stars. Keep asking questions and exploring new ideas!</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="demo" id="solution-10">
+  <h2>10. Combined Flexbox + Grid Layout</h2>
+  <p class="demo-note">The page uses Grid for its main structure and Flexbox for navigation and article boxes.</p>
+  <div class="combined">
+    <header><h3>Bright Ideas</h3><nav><a href="#combined-home" style="color:white">Home</a><a href="#combined-article" style="color:white">Article</a><a href="#combined-about" style="color:white">About</a></nav></header>
+    <article id="combined-article"><h3 class="animated-title">Build Better Web Pages</h3><p>Use CSS Grid for two-dimensional page layouts and Flexbox for arranging items in a row or column. Combining them makes responsive designs easier to maintain.</p><div class="combined-boxes"><div class="combined-box">Design</div><div class="combined-box">Develop</div><div class="combined-box">Deliver</div></div></article>
+    <aside id="combined-about"><h3>Sidebar</h3><p>Quick links, related resources, or a short author bio can go here.</p></aside>
+    <footer id="combined-home">© 2026 Bright Ideas. All rights reserved.</footer>
+  </div>
+</section>
+
+<div class="demo-footer">End of all 10 solutions — everything is included in this single HTML file.</div>
+</body>
+</html>
