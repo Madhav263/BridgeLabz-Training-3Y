@@ -1,0 +1,183 @@
+/* ---------- Base / box model ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #1f2933;
+    background-color: #f5f7fa;
+}
+
+section {
+    padding: 64px 24px;
+}
+
+h2 {
+    margin-bottom: 16px;
+}
+
+/* ---------- Sticky header (position: sticky) ---------- */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background-color: rgba(18, 53, 91, 0.95);   /* rgba colour */
+    color: #ffffff;
+}
+
+.site-header nav a {
+    margin-left: 18px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.site-header nav a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Hero: background image + gradient overlay ---------- */
+.hero {
+    position: relative;                          /* relative: parent for the badge */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+    color: #ffffff;
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.55), rgba(18, 53, 91, 0.55)),
+        url("https://picsum.photos/id/1018/1600/900");
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text h2 {
+    font-size: 2.6rem;
+}
+
+/* absolute positioning inside the relatively positioned hero */
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    background-color: #ffb703;
+    color: #1f2933;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* ---------- About: two columns ---------- */
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 32px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-text {
+    flex: 1 1 300px;
+}
+
+.about img {
+    flex: 1 1 300px;
+    max-width: 100%;
+    border: 4px solid #12355b;                   /* border */
+    border-radius: 10px;
+}
+
+/* ---------- Services: three boxes in a row ---------- */
+.services {
+    background: linear-gradient(135deg, #dbe9f7, #f7e8d4);
+    text-align: center;
+}
+
+.service-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.service {
+    flex: 1 1 250px;
+    padding: 24px;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 2px solid #12355b;
+    border-radius: 10px;
+}
+
+/* ---------- Contact form ---------- */
+.contact {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact input,
+.contact textarea {
+    padding: 10px;
+    border: 2px solid #9aa5b1;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* outline property used on focus */
+.contact input:focus,
+.contact textarea:focus {
+    outline: 3px solid rgba(255, 183, 3, 0.7);
+    outline-offset: 2px;
+}
+
+.contact button {
+    margin-top: 8px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #12355b;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+    padding: 20px;
+    text-align: center;
+    background-color: #1f2933;
+    color: #ffffff;
+}
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 600px) {
+    .site-header {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .hero-text h2 {
+        font-size: 1.8rem;
+    }
+}

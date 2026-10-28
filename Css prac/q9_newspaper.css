@@ -1,0 +1,57 @@
+/* Page background colour */
+body {
+    margin: 0;
+    background-color: #e8e1d3;
+}
+
+/* Padding around the main content area */
+.paper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 32px;
+    background-color: #f7f2e7;
+    font-family: "Times New Roman", serif;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    text-align: justify;               /* justified text */
+    color: #222;
+
+    /* Three newspaper columns */
+    column-count: 3;
+    column-gap: 32px;
+}
+
+/* Heading spans across all columns */
+h1 {
+    column-span: all;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px double #222;
+    font-family: Georgia, serif;
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+/* Image floated to the left inside the text */
+img {
+    float: left;
+    max-width: 100%;
+    margin: 0 14px 10px 0;
+}
+
+/* Fewer columns on smaller screens so text stays readable */
+@media (max-width: 800px) {
+    .paper {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .paper {
+        column-count: 1;
+    }
+}
