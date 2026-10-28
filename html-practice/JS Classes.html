@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>JS Assignment — All 9 Questions Solved</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Arial, sans-serif; }
+  body { background: #f0f2f5; color: #222; }
+  nav { position: sticky; top: 0; background: #1e293b; padding: 12px; z-index: 10; display: flex; flex-wrap: wrap; gap: 8px; }
+  nav a { color: #fff; text-decoration: none; background: #334155; padding: 6px 12px; border-radius: 6px; font-size: 13px; }
+  nav a:hover { background: #0ea5e9; }
+  section { background: #fff; margin: 24px auto; padding: 24px; max-width: 900px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  h1 { text-align: center; padding: 24px; }
+  h2 { color: #0f172a; border-bottom: 3px solid #0ea5e9; padding-bottom: 8px; margin-bottom: 16px; }
+  h3 { margin: 12px 0 6px; color: #334155; }
+  input, select { display: block; width: 100%; max-width: 420px; padding: 9px 10px; margin: 6px 0 12px; border: 2px solid #cbd5e1; border-radius: 6px; font-size: 14px; }
+  input:focus { outline: none; }
+  .valid { border-color: #16a34a !important; }
+  .invalid { border-color: #dc2626 !important; }
+  .err { color: #dc2626; font-size: 13px; margin: -6px 0 10px; min-height: 16px; }
+  .ok { color: #16a34a; font-size: 14px; font-weight: 600; margin-top: 8px; }
+  button { background: #0ea5e9; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 14px; margin: 4px 4px 4px 0; }
+  button:hover { background: #0284c7; }
+  pre { background: #0f172a; color: #e2e8f0; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: 13px; margin-top: 10px; white-space: pre-wrap; }
+  table { border-collapse: collapse; width: 100%; margin-top: 10px; font-size: 14px; }
+  th, td { border: 1px solid #cbd5e1; padding: 8px; text-align: left; }
+  th { background: #e2e8f0; }
+  .card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin-top: 10px; }
+  .ticket { background: linear-gradient(135deg, #0ea5e9, #6366f1); color: #fff; border-radius: 12px; padding: 18px; max-width: 380px; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#q1">Q1 Products</a><a href="#q2">Q2 Student Form</a>
+  <a href="#q3">Q3 Library</a><a href="#q4">Q4 Form Builder</a>
+  <a href="#q5">Q5 Movie Booking</a><a href="#q6">Q6 Employees</a>
+  <a href="#q7">Q7 Login</a><a href="#q8">Q8 Object Updater</a>
+  <a href="#q9">Q9 Cart</a>
+</nav>
+
+<h1>JavaScript Assignment — Q1 to Q9 (Single File)</h1>
+
+<!-- ================= Q1 ================= -->
+<section id="q1">
+  <h2>Q1: E-Commerce Product Manager (Classes + Objects)</h2>
+  <div id="q1-products"></div>
+  <pre id="q1-console"></pre>
+</section>
+
+<!-- ================= Q2 ================= -->
+<section id="q2">
+  <h2>Q2: Student Form Validator (Forms + RegExp)</h2>
+  <form id="studentForm" novalidate>
+    <input type="text" id="sName" placeholder="Name (alphabets only)">
+    <div class="err" id="eName"></div>
+    <input type="email" id="sEmail" placeholder="Email (example@domain.com)">
+    <div class="err" id="eEmail"></div>
+    <input type="text" id="sPhone" placeholder="Phone (exactly 10 digits)">
+    <div class="err" id="ePhone"></div>
+    <input type="password" id="sPass" placeholder="Password">
+    <div class="err" id="ePass"></div>
+    <button type="submit">Register</button>
+    <div class="ok" id="sOk"></div>
+  </form>
+</section>
+
+<!-- ================= Q3 ================= -->
+<section id="q3">
+  <h2>Q3: Library Management System</h2>
+  <input type="text" id="q3isbn" placeholder="Enter ISBN to issue">
+  <button onclick="issueByISBN()">Issue Book</button>
+  <div id="q3-msg" class="err"></div>
+  <h3>All Books</h3>
+  <div id="q3-all"></div>
+  <h3>Available Books (not issued)</h3>
+  <div id="q3-available"></div>
+</section>
+
+<!-- ================= Q4 ================= -->
+<section id="q4">
+  <h2>Q4: Custom Form Builder</h2>
+  <div id="q4-form"></div>
+  <pre id="q4-data"></pre>
+</section>
+
+<!-- ================= Q5 ================= -->
+<section id="q5">
+  <h2>Q5: Movie Ticket Booking</h2>
+  <input type="text" id="mName" placeholder="Name (alphabets only)">
+  <div class="err" id="eMName"></div>
+  <input type="email" id="mEmail" placeholder="Email">
+  <div class="err" id="eMEmail"></div>
+  <input type="number" id="mSeats" placeholder="Seats (1 to 10)" min="1" max="10">
+  <div class="err" id="eMSeats"></div>
+  <button onclick="bookTicket()">Book Ticket</button>
+  <div id="q5-ticket"></div>
+</section>
+
+<!-- ================= Q6 ================= -->
+<section id="q6">
+  <h2>Q6: Employee Management System</h2>
+  <div id="q6-table"></div>
+  <pre id="q6-total"></pre>
+</section>
+
+<!-- ================= Q7 ================= -->
+<section id="q7">
+  <h2>Q7: Login Form Validation (RegExp)</h2>
+  <input type="text" id="lUser" placeholder="Username (min 5 chars)">
+  <div class="err" id="eLUser"></div>
+  <input type="password" id="lPass" placeholder="Password">
+  <div class="err" id="eLPass"></div>
+  <button onclick="login()">Login</button>
+  <div id="q7-msg"></div>
+</section>
+
+<!-- ================= Q8 ================= -->
+<section id="q8">
+  <h2>Q8: Dynamic Object Updater</h2>
+  <label>Name: <input type="text" id="uName"></label>
+  <label>Email: <input type="text" id="uEmail"></label>
+  <label>Age: <input type="number" id="uAge"></label>
+  <button onclick="updateUser()">Update User</button>
+  <pre id="q8-display"></pre>
+</section>
+
+<!-- ================= Q9 ================= -->
+<section id="q9">
+  <h2>Q9: Shopping Cart Total + Coupon</h2>
+  <div class="card">
+    <input type="text" id="cName" placeholder="Item name">
+    <input type="number" id="cPrice" placeholder="Price">
+    <input type="number" id="cQty" placeholder="Quantity">
+    <button onclick="addItem()">Add Item</button>
+  </div>
+  <div id="q9-items"></div>
+  <div class="card">
+    <input type="text" id="cCoupon" placeholder="Coupon (e.g. SAVE20)">
+    <button onclick="applyCoupon()">Apply Coupon</button>
+    <pre id="q9-total"></pre>
+  </div>
+</section>
+
+<script>
+/* ================= Q1: Product Class ================= */
+class Product {
+  constructor(id, name, price, category) {
+    this.id = id; this.name = name; this.price = price; this.category = category;
+  }
+  applyDiscount(percent) {
+    this.price = this.price - (this.price * percent / 100);
+    return this.price;
+  }
+  displayDetails() {
+    return `ID: ${this.id} | Name: ${this.name} | Price: Rs.${this.price.toFixed(2)} | Category: ${this.category}`;
+  }
+}
+const products = [
+  new Product(1, "Laptop", 55000, "Electronics"),
+  new Product(2, "Mouse", 499, "Electronics"),
+  new Product(3, "Headphones", 2499, "Electronics"),
+  new Product(4, "Sofa", 18000, "Furniture"),
+  new Product(5, "Shoes", 850, "Fashion")
+];
+const log1 = [];
+// Apply 10% discount on all, then show products with price > 1000
+products.forEach(p => p.applyDiscount(10));
+const expensive = products.filter(p => p.price > 1000);
+log1.push("--- All products (after 10% discount) ---");
+products.forEach(p => log1.push(p.displayDetails()));
+log1.push("--- Products with price > 1000 (filter) ---");
+expensive.forEach(p => log1.push(p.displayDetails()));
+document.getElementById("q1-console").textContent = log1.join("\n");
+document.getElementById("q1-products").innerHTML =
+  expensive.map(p => `<div class="card">${p.displayDetails()}</div>`).join("");
+
+/* ================= Q2: Student Form Validator ================= */
+const studentForm = document.getElementById("studentForm");
+function setState(input, errEl, msg) {
+  if (msg) { input.classList.add("invalid"); input.classList.remove("valid"); errEl.textContent = msg; }
+  else { input.classList.add("valid"); input.classList.remove("invalid"); errEl.textContent = ""; }
+}
+studentForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  let valid = true;
+  const name = document.getElementById("sName");
+  const email = document.getElementById("sEmail");
+  const phone = document.getElementById("sPhone");
+  const pass = document.getElementById("sPass");
+
+  if (!/^[A-Za-z\s]+$/.test(name.value.trim())) { setState(name, eName, "Name must contain only alphabets."); valid = false; }
+  else setState(name, eName, "");
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { setState(email, eEmail, "Enter a valid email (example@domain.com)."); valid = false; }
+  else setState(email, eEmail, "");
+
+  if (!/^\d{10}$/.test(phone.value.trim())) { setState(phone, ePhone, "Phone must be exactly 10 digits."); valid = false; }
+  else setState(phone, ePhone, "");
+
+  const passRe = /^(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).+$/;
+  if (!passRe.test(pass.value)) { setState(pass, ePass, "Password needs 1 uppercase, 1 number and 1 special character."); valid = false; }
+  else if (pass.value.length < 6) { setState(pass, ePass, "Password too short (min 6 chars)."); valid = false; }
+  else setState(pass, ePass, "");
+
+  document.getElementById("sOk").textContent = valid ? "✔ Registration successful!" : "";
+});
+
+/* ================= Q3: Library Management ================= */
+class Book {
+  constructor(title, author, isbn) {
+    this.title = title; this.author = author; this.isbn = isbn; this.isIssued = false;
+  }
+  issueBook() { this.isIssued = true; }
+  returnBook() { this.isIssued = false; }
+}
+const library = [
+  new Book("Clean Code", "Robert C. Martin", "978-0132350884"),
+  new Book("The Alchemist", "Paulo Coelho", "978-0062315007"),
+  new Book("Atomic Habits", "James Clear", "978-0735211292"),
+  new Book("Dune", "Frank Herbert", "978-0441172719")
+];
+function renderLibrary() {
+  const row = b => `<tr style="${b.isIssued ? 'opacity:.5' : ''}">
+    <td>${b.title}</td><td>${b.author}</td><td>${b.isbn}</td>
+    <td>${b.isIssued ? "Issued" : "Available"}</td>
+    <td>${b.isIssued ? `<button onclick="returnByISBN('${b.isbn}')">Return</button>` : ""}</td></tr>`;
+  const table = list => `<table><tr><th>Title</th><th>Author</th><th>ISBN</th><th>Status</th><th></th></tr>
+    ${list.map(row).join("")}</table>`;
+  document.getElementById("q3-all").innerHTML = table(library);
+  document.getElementById("q3-available").innerHTML = table(library.filter(b => !b.isIssued));
+}
+function issueByISBN() {
+  const isbn = document.getElementById("q3isbn").value.trim();
+  const book = library.find(b => b.isbn === isbn && !b.isIssued);
+  const msg = document.getElementById("q3-msg");
+  if (book) { book.issueBook(); msg.textContent = ""; msg.className = "ok"; msg.textContent = `✔ "${book.title}" issued.`; }
+  else { msg.className = "err"; msg.textContent = "Book not found or already issued."; }
+  renderLibrary();
+}
+function returnByISBN(isbn) {
+  const book = library.find(b => b.isbn === isbn);
+  if (book) book.returnBook();
+  renderLibrary();
+}
+renderLibrary();
+
+/* ================= Q4: Form Builder ================= */
+class FormBuilder {
+  constructor(fields, mountId) {
+    this.fields = fields;
+    this.mount = document.getElementById(mountId);
+    this.build();
+  }
+  build() {
+    let html = "";
+    this.fields.forEach(f => {
+      html += `<label>${f.label}</label>`;
+      if (f.type === "select") {
+        html += `<select id="fb_${f.label}">${f.options.map(o => `<option>${o}</option>`).join("")}</select>`;
+      } else {
+        html += `<input type="${f.type}" id="fb_${f.label}" placeholder="${f.label}">`;
+      }
+    });
+    html += `<button onclick="q4Submit()">Submit</button>`;
+    this.mount.innerHTML = html;
+  }
+  getFormData() {
+    const data = {};
+    this.fields.forEach(f => { data[f.label] = document.getElementById("fb_" + f.label).value; });
+    return data;
+  }
+}
+const builder = new FormBuilder([
+  { type: "text",   label: "Username" },
+  { type: "email",  label: "Email" },
+  { type: "select", label: "Role", options: ["Student", "Teacher", "Admin"] },
+  { type: "password", label: "Password" }
+], "q4-form");
+function q4Submit() {
+  document.getElementById("q4-data").textContent =
+    "Form Data:\n" + JSON.stringify(builder.getFormData(), null, 2);
+}
+
+/* ================= Q5: Movie Ticket Booking ================= */
+function bookTicket() {
+  const name = document.getElementById("mName");
+  const email = document.getElementById("mEmail");
+  const seats = document.getElementById("mSeats");
+  let valid = true;
+
+  if (!/^[A-Za-z\s]+$/.test(name.value.trim())) { setState(name, eMName, "Name: alphabets only."); valid = false; } else setState(name, eMName, "");
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { setState(email, eMEmail, "Enter a valid email."); valid = false; } else setState(email, eMEmail, "");
+  const s = Number(seats.value);
+  if (!Number.isInteger(s) || s < 1 || s > 10) { setState(seats, eMSeats, "Seats must be between 1 and 10."); valid = false; } else setState(seats, eMSeats, "");
+
+  if (!valid) return;
+  const booking = { name: name.value.trim(), email: email.value.trim(), seats: s };
+  document.getElementById("q5-ticket").innerHTML = `
+    <div class="ticket">
+      <h3>🎬 Movie Ticket Confirmed</h3>
+      <p><b>Name:</b> ${booking.name}</p>
+      <p><b>Email:</b> ${booking.email}</p>
+      <p><b>Seats:</b> ${booking.seats}</p>
+    </div>`;
+}
+
+/* ================= Q6: Employee Management ================= */
+class Employee {
+  constructor(id, name, department, salary) {
+    this.id = id; this.name = name; this.department = department; this.salary = salary;
+  }
+  getAnnualSalary() { return this.salary * 12; }
+  applyBonus(percent) { this.salary += this.salary * percent / 100; }
+}
+const employees = [
+  new Employee(101, "Asha", "Engineering", 60000),
+  new Employee(102, "Ravi", "Design", 45000),
+  new Employee(103, "Meena", "HR", 38000),
+  new Employee(104, "Karan", "Engineering", 72000),
+  new Employee(105, "Lina", "Marketing", 41000)
+];
+employees.forEach(emp => emp.applyBonus(10)); // 10% bonus applied
+document.getElementById("q6-table").innerHTML = `<table>
+  <tr><th>ID</th><th>Name</th><th>Department</th><th>Monthly Salary</th><th>Annual Salary</th></tr>
+  ${employees.map(e => `<tr><td>${e.id}</td><td>${e.name}</td><td>${e.department}</td>
+    <td>Rs.${e.salary.toFixed(2)}</td><td>Rs.${e.getAnnualSalary().toFixed(2)}</td></tr>`).join("")}
+</table>`;
+const totalPayout = employees.reduce((sum, e) => sum + e.getAnnualSalary(), 0);
+document.getElementById("q6-total").textContent =
+  `Total Annual Payout (reduce): Rs.${totalPayout.toFixed(2)}`;
+
+/* ================= Q7: Login Validation ================= */
+function login() {
+  const user = document.getElementById("lUser");
+  const pass = document.getElementById("lPass");
+  const msg = document.getElementById("q7-msg");
+  let valid = true;
+
+  if (!/^.{5,}$/.test(user.value.trim())) { setState(user, eLUser, "Username must be at least 5 characters."); valid = false; }
+  else setState(user, eLUser, "");
+
+  const pw = pass.value;
+  const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+  if (!re.test(pw)) {
+    setState(pass, eLPass, "Password: min 8 chars, must include uppercase, lowercase, number and special character.");
+    valid = false;
+  } else setState(pass, eLPass, "");
+
+  msg.className = valid ? "ok" : "err";
+  msg.textContent = valid ? "✔ Login successful! Welcome, " + user.value.trim() + "." : "";
+}
+
+/* ================= Q8: Dynamic Object Updater ================= */
+let user = { name: "John", email: "john@mail.com", age: 21 };
+function syncForm() {
+  document.getElementById("uName").value = user.name;
+  document.getElementById("uEmail").value = user.email;
+  document.getElementById("uAge").value = user.age;
+  document.getElementById("q8-display").textContent = "Updated user object:\n" + JSON.stringify(user, null, 2);
+}
+function updateUser() {
+  user.name = document.getElementById("uName").value;
+  user.email = document.getElementById("uEmail").value;
+  user.age = Number(document.getElementById("uAge").value);
+  document.getElementById("q8-display").textContent = "Updated user object:\n" + JSON.stringify(user, null, 2);
+}
+syncForm();
+
+/* ================= Q9: Shopping Cart ================= */
+class Cart {
+  constructor() { this.items = []; this.discount = 0; }
+  addItem(name, price, quantity) { this.items.push({ name, price, quantity }); }
+  getTotal() {
+    return this.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+  }
+  applyCoupon(code) {
+    const m = code.match(/^([A-Z]+)(\d{1,2})$/); // e.g. SAVE20, DISC10
+    if (m && +m[2] > 0 && +m[2] <= 90) { this.discount = +m[2]; return true; }
+    return false;
+  }
+  getFinalTotal() {
+    return this.getTotal() - (this.getTotal() * this.discount / 100);
+  }
+}
+const cart = new Cart();
+cart.addItem("Wireless Mouse", 499, 2);
+cart.addItem("Keyboard", 1299, 1);
+cart.addItem("USB Cable", 199, 3);
+
+function renderCart() {
+  document.getElementById("q9-items").innerHTML = `<table>
+    <tr><th>Item</th><th>Price</th><th>Qty</th><th>Amount</th></tr>
+    ${cart.items.map(i => `<tr><td>${i.name}</td><td>Rs.${i.price}</td><td>${i.quantity}</td><td>Rs.${i.price * i.quantity}</td></tr>`).join("")}
+  </table>`;
+  document.getElementById("q9-total").textContent =
+    `Subtotal: Rs.${cart.getTotal().toFixed(2)}\nDiscount: ${cart.discount}%\nFINAL TOTAL: Rs.${cart.getFinalTotal().toFixed(2)}`;
+}
+function addItem() {
+  const name = document.getElementById("cName").value.trim();
+  const price = +document.getElementById("cPrice").value;
+  const qty = +document.getElementById("cQty").value;
+  if (!name || !price || !qty) return;
+  cart.addItem(name, price, qty);
+  renderCart();
+}
+function applyCoupon() {
+  const code = document.getElementById("cCoupon").value.trim().toUpperCase();
+  alert(cart.applyCoupon(code) ? `Coupon applied: ${cart.discount}% off` : "Invalid coupon format. Use e.g. SAVE20 or DISC10");
+  renderCart();
+}
+renderCart();
+</script>
+</body>
+</html>
