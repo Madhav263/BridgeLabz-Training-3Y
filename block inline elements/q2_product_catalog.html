@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Catalog</title>
+</head>
+<body>
+    <h1>Online Store - Product Catalog</h1>
+
+    <!-- Product table; the first row uses colspan, the Electronics cell uses rowspan -->
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th colspan="5">Featured Products</th>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <th>Product Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <!-- rowspan: Electronics spans two product rows -->
+                <td rowspan="2">Electronics</td>
+                <td>
+                    <img src="https://placehold.co/120x120?text=Headphones" alt="Wireless headphones" width="120" height="120"><br>
+                    Wireless Headphones
+                </td>
+                <td>Bluetooth headphones with noise cancellation.</td>
+                <td>&#8377;2,999</td>
+                <td>In Stock</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://placehold.co/120x120?text=Watch" alt="Smart watch" width="120" height="120"><br>
+                    Smart Watch
+                </td>
+                <td>Fitness tracking watch with heart-rate monitor.</td>
+                <td>&#8377;4,499</td>
+                <td>Limited Stock</td>
+            </tr>
+            <tr>
+                <td rowspan="2">Accessories</td>
+                <td>
+                    <img src="https://placehold.co/120x120?text=Backpack" alt="Laptop backpack" width="120" height="120"><br>
+                    Laptop Backpack
+                </td>
+                <td>Water-resistant backpack for 15.6 inch laptops.</td>
+                <td>&#8377;1,299</td>
+                <td>In Stock</td>
+            </tr>
+            <tr>
+                <td>
+                    <img src="https://placehold.co/120x120?text=Mouse" alt="Wireless mouse" width="120" height="120"><br>
+                    Wireless Mouse
+                </td>
+                <td>Ergonomic wireless mouse with USB receiver.</td>
+                <td>&#8377;599</td>
+                <td>Out of Stock</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="5">Prices include GST. Availability may change.</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
