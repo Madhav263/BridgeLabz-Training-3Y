@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All 20 HTML Assignment Solutions</title>
+</head>
+<body>
+  <h1>All 20 HTML Assignment Solutions</h1>
+  <p>Each solution is included below as a separate section. Copy any section into its own .html file if needed.</p>
+
+  <hr>
+  <section>
+    <h2>01_youtube_iframe.html</h2>
+    <pre><code>
+  &lt;h1&gt;Embedded YouTube Video&lt;/h1&gt;
+  &lt;iframe
+    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+    title="YouTube video"
+    width="100%"
+    height="50%"
+    allowfullscreen&gt;
+  &lt;/iframe&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>02_google_map.html</h2>
+    <pre><code>
+  &lt;h1&gt;Map of Mathura&lt;/h1&gt;
+  &lt;iframe
+    title="Google Map showing Mathura"
+    src="https://www.google.com/maps?q=Mathura,India&amp;output=embed"
+    width="100%"
+    height="450"
+    loading="lazy"&gt;
+  &lt;/iframe&gt;
+  &lt;!-- loading="lazy" delays loading the map until it is near the visible area, improving initial page loading. --&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>03_two_iframes.html</h2>
+    <pre><code>
+  &lt;h1&gt;My Introduction&lt;/h1&gt;
+  &lt;iframe src="intro.html" title="My introduction" width="600" height="250"&gt;&lt;/iframe&gt;
+
+  &lt;h1&gt;My Favorite Hobby&lt;/h1&gt;
+  &lt;iframe src="hobby.html" title="My favorite hobby" width="600" height="250"&gt;&lt;/iframe&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>04_frameset.html</h2>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Frameset Layout&lt;/title&gt;&lt;/head&gt;
+&lt;frameset rows="20%,80%"&gt;
+  &lt;frame src="navigation.html" name="navigation" title="Navigation"&gt;
+  &lt;frame src="welcome.html" name="content" title="Welcome message"&gt;
+&lt;/frameset&gt;
+&lt;/html&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>05_utf8_languages.html</h2>
+    <pre><code>
+  &lt;p&gt;English: Hello! Hindi: नमस्ते! Japanese: こんにちは！&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>06_registration_form.html</h2>
+    <pre><code>
+  &lt;h1&gt;User Registration&lt;/h1&gt;
+  &lt;form action="#" method="post"&gt;
+    &lt;label&gt;Full Name: &lt;input type="text" name="fullName" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Email Address: &lt;input type="email" name="email" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Password: &lt;input type="password" name="password" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Confirm Password: &lt;input type="password" name="confirmPassword" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Register&lt;/button&gt;
+  &lt;/form&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>07_login_form.html</h2>
+    <pre><code>
+  &lt;h1&gt;Login&lt;/h1&gt;
+  &lt;form action="#" method="post"&gt;
+    &lt;label&gt;Username: &lt;input type="text" name="username" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Password: &lt;input type="password" name="password" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;input type="hidden" name="csrf_token" value="dummy-token-123"&gt;
+    &lt;!-- A CSRF token helps a server verify that a submitted request came from a legitimate form, rather than a forged request from another site. --&gt;
+    &lt;button type="submit"&gt;Log In&lt;/button&gt;
+  &lt;/form&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>08_feedback_form.html</h2>
+    <pre><code>
+  &lt;h1&gt;Feedback&lt;/h1&gt;
+  &lt;form method="post" action="#"&gt;
+    &lt;label for="feedback"&gt;Your feedback:&lt;/label&gt;&lt;br&gt;
+    &lt;textarea id="feedback" name="feedback" rows="5" cols="40"&gt;&lt;/textarea&gt;&lt;br&gt;
+    &lt;p&gt;Rating:&lt;/p&gt;
+    &lt;label&gt;&lt;input type="radio" name="rating" value="Good"&gt; Good&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="rating" value="Average"&gt; Average&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="rating" value="Poor"&gt; Poor&lt;/label&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>09_file_upload.html</h2>
+    <pre><code>
+  &lt;h1&gt;Upload an Image&lt;/h1&gt;
+  &lt;form action="#" method="post" enctype="multipart/form-data"&gt;
+    &lt;input type="file" name="image" accept=".jpg,.jpeg,.png"&gt;
+    &lt;button type="submit"&gt;Upload&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;p&gt;Allowed files: JPG, JPEG, or PNG images.&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>10_contact_form.html</h2>
+    <pre><code>
+  &lt;h1&gt;Contact Us&lt;/h1&gt;
+  &lt;form action="#" method="post"&gt;
+    &lt;input type="text" name="fullName" placeholder="Full Name" required&gt;&lt;br&gt;
+    &lt;input type="email" name="email" placeholder="Email" required&gt;&lt;br&gt;
+    &lt;input type="text" name="subject" placeholder="Subject" required&gt;&lt;br&gt;
+    &lt;textarea name="message" placeholder="Message" rows="5" required&gt;&lt;/textarea&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Send&lt;/button&gt;
+  &lt;/form&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>11_student_information.html</h2>
+    <pre><code>
+  &lt;h1&gt;Student Information&lt;/h1&gt;
+  &lt;form action="#" method="post"&gt;
+    &lt;label&gt;Name: &lt;input type="text" name="name" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Roll Number: &lt;input type="text" name="rollNumber" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Course:
+      &lt;select name="course" required&gt;
+        &lt;option value="" disabled selected&gt;Select Course&lt;/option&gt;
+        &lt;option value="BCA"&gt;BCA&lt;/option&gt;
+        &lt;option value="B.Tech"&gt;B.Tech&lt;/option&gt;
+        &lt;option value="BBA"&gt;BBA&lt;/option&gt;
+        &lt;option value="MCA"&gt;MCA&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>12_html_entities.html</h2>
+    <pre><code>
+  &lt;p&gt;Less than: &amp;lt; | Greater than: &amp;gt; | Ampersand: &amp;amp; | Double quote: &amp;quot; | Apostrophe: &amp;#39; | Copyright: &amp;copy; | Trademark: &amp;trade; | Registered: &amp;reg;&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>13_three_languages.html</h2>
+    <pre><code>
+  &lt;p&gt;English: Good morning!&lt;/p&gt;
+  &lt;p&gt;Hindi: सुप्रभात!&lt;/p&gt;
+  &lt;p&gt;French: Bonjour !&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>14_external_iframe.html</h2>
+    <pre><code>
+  &lt;iframe src="https://www.wikipedia.org" title="Wikipedia website" width="100%" height="500"&gt;&lt;/iframe&gt;
+  &lt;p&gt;Some websites may not allow embedding for security reasons.&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>15_payment_form.html</h2>
+    <pre><code>
+  &lt;h1&gt;Payment Details&lt;/h1&gt;
+  &lt;form action="#" method="post"&gt;
+    &lt;label&gt;Cardholder Name: &lt;input type="text" name="cardholder" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Card Number: &lt;input type="text" name="cardNumber" inputmode="numeric" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Expiry Date: &lt;input type="text" name="expiry" placeholder="MM/YY" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;CVV: &lt;input type="password" name="cvv" inputmode="numeric" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Pay Now&lt;/button&gt;
+  &lt;/form&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>16_uri_encoding.html</h2>
+    <pre><code>
+  &lt;p&gt;Original URL (contains an unencoded space): https://example.com/search?query=HTML &amp;amp; CSS&lt;/p&gt;
+  &lt;p&gt;Encoded URL:&lt;/p&gt;
+  &lt;a href="https://example.com/search?query=HTML%20%26%20CSS"&gt;https://example.com/search?query=HTML%20%26%20CSS&lt;/a&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>17_form.html</h2>
+    <pre><code>
+  &lt;h1&gt;Sample Form&lt;/h1&gt;
+  &lt;form action="result.html" method="get" target="resultFrame"&gt;
+    &lt;label&gt;Enter text: &lt;input type="text" name="text"&gt;&lt;/label&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;iframe name="resultFrame" src="result.html" title="Submission result" width="400" height="100"&gt;&lt;/iframe&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>18_quotations.html</h2>
+    <pre><code>
+  &lt;blockquote&gt;
+    Learning is a continuous process. Every new idea helps us understand the world better, and asking questions helps us grow.
+    Remember to use &amp;amp; when writing an ampersand in HTML.
+  &lt;/blockquote&gt;
+  &lt;p&gt;As the saying goes, &lt;q&gt;Practice makes progress.&lt;/q&gt;&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>19_form_security.html</h2>
+    <pre><code>
+  &lt;h1&gt;Secure Form Example&lt;/h1&gt;
+  &lt;form action="#" method="post" autocomplete="off"&gt;
+    &lt;label&gt;Username: &lt;input type="text" name="username" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Email: &lt;input type="email" name="email" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;Password: &lt;input type="password" name="password" required&gt;&lt;/label&gt;&lt;br&gt;
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+  &lt;/form&gt;
+  &lt;p&gt;Turning off autocomplete can reduce the chance that a browser saves or automatically fills sensitive information on a shared device. It does not replace server-side security.&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>20_head_elements.html</h2>
+    <pre><code>
+  &lt;h1&gt;Important Head Elements&lt;/h1&gt;
+  &lt;p&gt;This page demonstrates the elements commonly placed inside the head section.&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>about.html</h2>
+    <pre><code>&lt;h1&gt;About&lt;/h1&gt;&lt;p&gt;This is my sample website.&lt;/p&gt;</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>contact.html</h2>
+    <pre><code>&lt;h1&gt;Contact&lt;/h1&gt;&lt;p&gt;Email: student@example.com&lt;/p&gt;</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>hobby.html</h2>
+    <pre><code>
+  &lt;h2&gt;My Favorite Hobby&lt;/h2&gt;
+  &lt;p&gt;My favorite hobby is reading and exploring new things about technology.&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>intro.html</h2>
+    <pre><code>
+  &lt;h2&gt;Introduction&lt;/h2&gt;
+  &lt;p&gt;Hello! I am a student who enjoys learning technology and developing useful skills.&lt;/p&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>navigation.html</h2>
+    <pre><code>
+  &lt;a href="welcome.html" target="content"&gt;Home&lt;/a&gt; |
+  &lt;a href="about.html" target="content"&gt;About&lt;/a&gt; |
+  &lt;a href="contact.html" target="content"&gt;Contact&lt;/a&gt;
+</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>result.html</h2>
+    <pre><code>&lt;p&gt;Form successfully submitted.&lt;/p&gt;</code></pre>
+  </section>
+
+  <hr>
+  <section>
+    <h2>welcome.html</h2>
+    <pre><code>&lt;h1&gt;Welcome to My Website&lt;/h1&gt;</code></pre>
+  </section>
+
+</body>
+</html>
