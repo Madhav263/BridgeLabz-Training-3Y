@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightWorks Studio</title>
+    <link rel="stylesheet" href="q10_full_layout.css">
+</head>
+<body>
+    <!-- Sticky header with navigation -->
+    <header class="site-header">
+        <h1 class="brand">BrightWorks</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero with background image and centered text -->
+        <section id="home" class="hero">
+            <div class="hero-text">
+                <h2>Welcome to BrightWorks</h2>
+                <p>We design and build simple, beautiful websites.</p>
+                <span class="badge">New</span>
+            </div>
+        </section>
+
+        <!-- About: two columns -->
+        <section id="about" class="about">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>BrightWorks is a small studio that helps local businesses get online. We focus on clean layouts, fast pages and friendly support.</p>
+            </div>
+            <img src="https://placehold.co/500x320?text=Our+Team" alt="Our team at work">
+        </section>
+
+        <!-- Services: three boxes -->
+        <section id="services" class="services">
+            <h2>Our Services</h2>
+            <div class="service-row">
+                <article class="service">
+                    <h3>Web Design</h3>
+                    <p>Modern layouts that look good on every device.</p>
+                </article>
+                <article class="service">
+                    <h3>Development</h3>
+                    <p>Fast and reliable websites built with clean code.</p>
+                </article>
+                <article class="service">
+                    <h3>Support</h3>
+                    <p>Ongoing help and updates after your site goes live.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact form -->
+        <section id="contact" class="contact">
+            <h2>Contact Us</h2>
+            <form action="#" method="post">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+
+                <label for="msg">Message</label>
+                <textarea id="msg" name="msg" rows="4"></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 BrightWorks. All rights reserved.</p>
+    </footer>
+</body>
+</html>

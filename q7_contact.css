@@ -1,0 +1,79 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Theme: dark navy background with light text */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #12355b;
+    color: #ffffff;
+}
+
+/* Flexbox centers the form horizontally and vertically */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+}
+
+form {
+    width: 100%;
+    max-width: 420px;
+    padding: 28px;
+    background-color: #1c4a7d;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+}
+
+/* Spacing between fields uses margins, no tables */
+.field {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background-color: #f4f7fb;
+    color: #1f2933;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+}
+
+/* Border colour changes on focus */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ffb703;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffb703;
+    color: #1f2933;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffc933;
+}
